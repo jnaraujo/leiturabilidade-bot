@@ -5,4 +5,4 @@ services:
     build:
       context: .
     environment:
-      - BOT_TOKEN: ${BOT_TOKEN}
+      BOT_TOKEN: ${BOT_TOKEN}
