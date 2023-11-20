@@ -1,16 +1,17 @@
-FROM node:20-bullseye-slim
+FROM node:20.1-alpine3.16 as base
 
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
-RUN corepack prepare pnpm@7.18.0 --activate
 
 WORKDIR /app
-COPY package.json package.json
-COPY pnpm-lock.yaml pnpm-lock.yaml
+COPY package.json /app
+COPY pnpm-lock.yaml /app
 
 RUN pnpm install
 
 COPY . .
 
-RUN pnpm build
+RUN pnpm run build
 
-CMD ["pnpm", "start"]
+CMD [ "node", "dist/index.js" ]
