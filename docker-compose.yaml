@@ -3,3 +3,5 @@ version: '3.5'
 services:
   bot:
     build: .
+    args:
+      BOT_TOKEN: ${BOT_TOKEN}
