@@ -14,6 +14,4 @@ COPY . .
 
 RUN pnpm run build
 
-ARG BOT_TOKEN
-
 CMD [ "node", "dist/index.js" ]
