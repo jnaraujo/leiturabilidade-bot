@@ -25,9 +25,9 @@ bot.on(message("text"), async (ctx) => {
     `O texto enviado tem <b>${result.words} palavra(s)</b> e <b>${
       result.sentences
     } frase(s)</b>. O resultado do teste é <b>${Math.round(
-      result.result,
+      result.index,
     )}%</b>, o que significa que o texto é adequado para <b>${easeToLabel(
-      result.result,
+      result.index,
     )}</b>.`,
   );
 });

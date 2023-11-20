@@ -46,7 +46,7 @@ export function calculateFleschReadingFromText(text: string) {
   const phrases = splitPhrases(text);
 
   const result = {
-    result: 0,
+    index: 0,
     syllables: 0,
     words: 0,
     sentences: 0,
@@ -58,13 +58,11 @@ export function calculateFleschReadingFromText(text: string) {
     result.sentences += phraseAnalyses.sentences;
   }
 
-  result.result = calculateFleschEase(
+  result.index = calculateFleschEase(
     result.words,
     result.sentences,
     result.syllables,
   );
-
-  console.log(result);
 
   return result;
 }
